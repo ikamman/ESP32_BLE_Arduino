@@ -61,7 +61,6 @@ std::string BLERemoteDescriptor::readValue(void) {
 	// Check to see that we are connected.
 	if (!getRemoteCharacteristic()->getRemoteService()->getClient()->isConnected()) {
 		ESP_LOGE(LOG_TAG, "Disconnected");
-		throw BLEDisconnectedException();
 	}
 
 	m_semaphoreReadDescrEvt.take("readValue");
@@ -139,7 +138,6 @@ void BLERemoteDescriptor::writeValue(
 	// Check to see that we are connected.
 	if (!getRemoteCharacteristic()->getRemoteService()->getClient()->isConnected()) {
 		ESP_LOGE(LOG_TAG, "Disconnected");
-		throw BLEDisconnectedException();
 	}
 
 	esp_err_t errRc = ::esp_ble_gattc_write_char_descr(

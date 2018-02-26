@@ -129,8 +129,8 @@ void BLERemoteService::gattClientEventHandler(
 BLERemoteCharacteristic* BLERemoteService::getCharacteristic(const char* uuid) {
     return getCharacteristic(BLEUUID(uuid));
 } // getCharacteristic
-	
-	
+
+
 /**
  * @brief Get the characteristic object for the UUID.
  * @param [in] uuid Characteristic uuid.
@@ -153,7 +153,6 @@ BLERemoteCharacteristic* BLERemoteService::getCharacteristic(BLEUUID uuid) {
 			return myPair.second;
 		}
 	}
-	throw new BLEUuidNotFoundException();
 } // getCharacteristic
 
 
